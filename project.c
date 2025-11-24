@@ -21,7 +21,6 @@ typedef struct
     char patron[20];
     int time_for_retrieval;
 } Book;
-int bookCount;
 
 Book shelf[50];    
 int bookCount = 0; 
@@ -37,12 +36,11 @@ int main()
 {
     char input;
 
-    printf("o============================o\n");
     while (1)
     {
         printf("\no============================o\n");
         printf("|                            |\n");
-        printf("|          > MENU <          |\n");
+        printf("|            MENU            |\n");
         printf("|                            |\n");
         printf("|     [B]ook Leanding        |\n");
         printf("|     [H]elp                 |\n");
@@ -50,7 +48,7 @@ int main()
         printf("|     [A]dd Book             |\n");
         printf("|     [L]ist all books       |\n");
         printf("|     [S]ave library         |\n");
-        printf("|                            |\n");
+        printf("|  Loa[D] Library            |\n");
         printf("o============================o\n");
         printf(" > ");
 
@@ -63,7 +61,9 @@ int main()
         case 'B':
             LoanBook();
             break;
-
+        case 'D':
+            LoadLibrary();
+            break;
         case 'A':
             AddBook();
             break;
