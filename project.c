@@ -29,6 +29,7 @@ void AddBook();
 void ListBooks();
 void LoanBook();
 void SaveLibrary();
+void LoadLibrary();
 
 Book SetBook(char index[50], char title[50], char author[20], char sect[10], int year);
 
@@ -66,6 +67,10 @@ int main()
             break;
         case 'A':
             AddBook();
+            break;
+        case 'H':
+            printf("To use the Library's terminal, as you've used to open this HELP manual, input the\n \
+                characters as specified on uppercase");
             break;
         case 'L':
             ListBooks();
@@ -111,9 +116,8 @@ void AddBook()
     fgets(author, sizeof(author), stdin);
     printf("Finally, insert the year of publication:\n > ");
     fgets(year_str, sizeof(year_str), stdin);
-    year = atoi(year_str); // Convert string to integer
+    year = atoi(year_str);
 
-    // Create the book and add it to our shelf
     shelf[bookCount] = SetBook(index, title, author, sect, year);
     bookCount++;
 
@@ -259,5 +263,5 @@ void LoadLibrary()
     }
 
     fclose(fptr);
-    printf(GREEN "Restoration Complete. %d Abnormalities contained.\n" DEFAULT, bookCount);
+    printf(GREEN "Stream closed and the things got saved. %d files written.\n" DEFAULT, bookCount);
 }
